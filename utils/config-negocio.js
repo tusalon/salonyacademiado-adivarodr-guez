@@ -1,12 +1,12 @@
 // utils/config-negocio.js - VERSIÓN MULTI-TENANT CORREGIDA
-// CLIENTE: Salón Venus
+// CLIENTE: Salón Academia Doña Diva Rodríguez 
 
 console.log('🏢 config-negocio.js cargado');
 
 // ============================================
 // 🔥 CONFIGURACIÓN POR CLIENTE - ¡LO ÚNICO QUE CAMBIA!
 // ============================================
-const NEGOCIO_ID_POR_DEFECTO = 'e7f161f7-bf31-4f81-b7df-df837981921b'; // ID de Salón Venus
+const NEGOCIO_ID_POR_DEFECTO = 'b313b8ee-85b6-41c4-957a-674461d076ef'; // ID de Salón Academia Doña Diva Rodríguez 
 
 // Hacer accesible globalmente
 window.NEGOCIO_ID_POR_DEFECTO = NEGOCIO_ID_POR_DEFECTO;
@@ -116,7 +116,7 @@ window.cargarConfiguracionNegocio = async function(forceRefresh = false) {
  */
 window.getNombreNegocio = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.nombre || 'Salón Venus';
+    return config?.nombre || 'Salón Academia Doña Diva Rodríguez ';
 };
 
 /**
@@ -124,7 +124,7 @@ window.getNombreNegocio = async function() {
  */
 window.getTelefonoDuenno = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.telefono || '54770833';
+    return config?.telefono || '52751318';
 };
 
 /**
@@ -132,7 +132,7 @@ window.getTelefonoDuenno = async function() {
  */
 window.getEmailNegocio = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.email || 'daniskeyli94@gmail.con';
+    return config?.email || 'srreyes1975@gmail.com ';
 };
 
 /**
@@ -164,7 +164,7 @@ window.getHorarioAtencion = async function() {
  */
 window.getMensajeBienvenida = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.mensaje_bienvenida || '¡Bienvenida a Salón Venus!';
+    return config?.mensaje_bienvenida || '¡Bienvenida a Salón Academia Doña Diva Rodríguez !';
 };
 
 /**
@@ -180,7 +180,7 @@ window.getMensajeConfirmacion = async function() {
  */
 window.getNtfyTopic = async function() {
     const config = await window.cargarConfiguracionNegocio();
-    return config?.ntfy_topic || 'salonvenus';
+    return config?.ntfy_topic || 'salonyacademiado-adivarodr-guez';
 };
 
 /**
@@ -205,5 +205,5 @@ setTimeout(async () => {
     await window.cargarConfiguracionNegocio();
 }, 500);
 
-console.log('✅ config-negocio.js listo para Salón Venus');
+console.log('✅ config-negocio.js listo para Salón Academia Doña Diva Rodríguez ');
 console.log('🏷️  ID configurado:', NEGOCIO_ID_POR_DEFECTO);

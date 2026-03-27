@@ -1,22 +1,22 @@
-// sw.js - Service Worker para Salón Venus
+// sw.js - Service Worker para Salón Academia Doña Diva Rodríguez 
 
-const CACHE_NAME = 'salonvenus-v1';
+const CACHE_NAME = 'salonyacademiado-adivarodr-guez-v1';
 const urlsToCache = [
-  '/salonvenus/',
-  '/salonvenus/index.html',
-  '/salonvenus/admin.html',
-  '/salonvenus/admin-login.html',
-  '/salonvenus/setup-wizard.html',
-  '/salonvenus/editar-negocio.html',
-  '/salonvenus/manifest.json',
-  '/salonvenus/icons/icon-72x72.png',
-  '/salonvenus/icons/icon-96x96.png',
-  '/salonvenus/icons/icon-128x128.png',
-  '/salonvenus/icons/icon-144x144.png',
-  '/salonvenus/icons/icon-152x152.png',
-  '/salonvenus/icons/icon-192x192.png',
-  '/salonvenus/icons/icon-384x384.png',
-  '/salonvenus/icons/icon-512x512.png'
+  '/salonyacademiado-adivarodr-guez/',
+  '/salonyacademiado-adivarodr-guez/index.html',
+  '/salonyacademiado-adivarodr-guez/admin.html',
+  '/salonyacademiado-adivarodr-guez/admin-login.html',
+  '/salonyacademiado-adivarodr-guez/setup-wizard.html',
+  '/salonyacademiado-adivarodr-guez/editar-negocio.html',
+  '/salonyacademiado-adivarodr-guez/manifest.json',
+  '/salonyacademiado-adivarodr-guez/icons/icon-72x72.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-96x96.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-128x128.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-144x144.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-152x152.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-192x192.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-384x384.png',
+  '/salonyacademiado-adivarodr-guez/icons/icon-512x512.png'
 ];
 
 // ============================================
@@ -108,7 +108,7 @@ self.addEventListener('fetch', event => {
           }
           // Si no hay cache y es imagen, devolver icon por defecto
           if (event.request.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
-            return caches.match('/salonvenus/icons/icon-192x192.png');
+            return caches.match('/salonyacademiado-adivarodr-guez/icons/icon-192x192.png');
           }
           return new Response('Error de red', { status: 408 });
         });
@@ -138,6 +138,6 @@ self.addEventListener('message', event => {
   }
 });
 
-console.log('✅ Service Worker configurado para Salón Venus');
+console.log('✅ Service Worker configurado para Salón Academia Doña Diva Rodríguez ');
 console.log('📦 Cache:', CACHE_NAME);
 console.log('📄 Archivos a cachear:', urlsToCache.length);

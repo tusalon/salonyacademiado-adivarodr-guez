@@ -1,20 +1,20 @@
 {
-  "name": "Salón Venus",
+  "name": "Salón Academia Doña Diva Rodríguez ",
   "short_name": "Salón",
   "description": "Uñas y belleza - Tu espacio de cuidado personal",
-  "start_url": "/salonvenus/",
-  "scope": "/salonvenus/",
+  "start_url": "/salonyacademiado-adivarodr-guez/",
+  "scope": "/salonyacademiado-adivarodr-guez/",
   "display": "standalone",
   "background_color": "#ec4899",
   "theme_color": "#ec4899",
   "icons": [
     {
-      "src": "/salonvenus/icons/icon-192x192.png",
+      "src": "/salonyacademiado-adivarodr-guez/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/salonvenus/icons/icon-512x512.png",
+      "src": "/salonyacademiado-adivarodr-guez/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
