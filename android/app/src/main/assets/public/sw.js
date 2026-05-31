@@ -1,6 +1,6 @@
-// sw.js - Service Worker para Salón Academia Doña Diva Rodríguez 
+﻿// sw.js - Service Worker para SalÃ³n Academia DoÃ±a Diva RodrÃ­guez 
 
-const CACHE_NAME = 'salonyacademiado-adivarodr-guez-v47';
+const CACHE_NAME = 'salonyacademiado-adivarodr-guez-v48';
 const urlsToCache = [
   '/salonyacademiado-adivarodr-guez/',
   '/salonyacademiado-adivarodr-guez/index.html',
@@ -28,59 +28,59 @@ const urlsToCache = [
 ];
 
 // ============================================
-// INSTALACIÓN
+// INSTALACIÃ“N
 // ============================================
 self.addEventListener('install', event => {
-  console.log('📦 📦 Service Worker instalando...');
+  console.log('ðŸ“¦ ðŸ“¦ Service Worker instalando...');
   self.skipWaiting();
   
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('✅ Cache creado, guardando archivos...');
+        console.log('âœ… Cache creado, guardando archivos...');
         return cache.addAll(urlsToCache);
       })
       .catch(error => {
-        console.error('❌ Error al cachear archivos:', error);
+        console.error('âŒ Error al cachear archivos:', error);
       })
   );
 });
 
 // ============================================
-// ACTIVACIÓN
+// ACTIVACIÃ“N
 // ============================================
 self.addEventListener('activate', event => {
-  console.log('🔄 🔄 Service Worker activado, limpiando caches antiguos...');
+  console.log('ðŸ”„ ðŸ”„ Service Worker activado, limpiando caches antiguos...');
   
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME) {
-            console.log('🗑️ 🗑️ Eliminando cache antiguo:', cacheName);
+            console.log('ðŸ—‘ï¸ ðŸ—‘ï¸ Eliminando cache antiguo:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
     }).then(() => {
-      console.log('✅ Service Worker activado y listo');
+      console.log('âœ… Service Worker activado y listo');
       return self.clients.claim();
     })
   );
 });
 
 // ============================================
-// ESTRATEGIA DE CACHÉ
+// ESTRATEGIA DE CACHÃ‰
 // ============================================
 self.addEventListener('fetch', event => {
   // Ignorar peticiones que no sean HTTP
   if (!event.request.url.startsWith('http')) return;
   
-  // ⚡ ⚠️ NO INTERCEPTAR WHATSAPP (ESENCIAL PARA iOS)
+  // âš¡ âš ï¸ NO INTERCEPTAR WHATSAPP (ESENCIAL PARA iOS)
   if (event.request.url.includes('wa.me') || 
       event.request.url.includes('api.whatsapp.com') ||
       event.request.url.includes('whatsapp.com')) {
-    console.log('📱 📱 Dejando pasar WhatsApp sin cache');
+    console.log('ðŸ“± ðŸ“± Dejando pasar WhatsApp sin cache');
     return;
   }
   
@@ -98,7 +98,7 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     fetch(event.request)
       .then(networkResponse => {
-        // Si la respuesta es válida, guardar en cache
+        // Si la respuesta es vÃ¡lida, guardar en cache
         if (networkResponse && networkResponse.status === 200 && event.request.method === 'GET') {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then(cache => {
@@ -111,7 +111,7 @@ self.addEventListener('fetch', event => {
         // Si falla la red, buscar en cache
         return caches.match(event.request).then(cachedResponse => {
           if (cachedResponse) {
-            console.log('📦 📦 Sirviendo desde cache:', event.request.url);
+            console.log('ðŸ“¦ ðŸ“¦ Sirviendo desde cache:', event.request.url);
             return cachedResponse;
           }
           // Si no hay cache y es imagen, devolver icon por defecto
@@ -128,24 +128,25 @@ self.addEventListener('fetch', event => {
 // MANEJO DE MENSAJES
 // ============================================
 self.addEventListener('message', event => {
-  console.log('📨 📄 Mensaje recibido:', event.data);
+  console.log('ðŸ“¨ ðŸ“„ Mensaje recibido:', event.data);
   
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    console.log('⏩ ⏩ Saltando waiting...');
+    console.log('â© â© Saltando waiting...');
     self.skipWaiting();
   }
   
   if (event.data && event.data.type === 'CLEAR_CACHE') {
-    console.log('🧹 🧹 Limpiando todo el cache...');
+    console.log('ðŸ§¹ ðŸ§¹ Limpiando todo el cache...');
     caches.keys().then(cacheNames => {
       cacheNames.forEach(cacheName => {
         caches.delete(cacheName);
-        console.log('🗑️ 🗑️ Cache eliminado:', cacheName);
+        console.log('ðŸ—‘ï¸ ðŸ—‘ï¸ Cache eliminado:', cacheName);
       });
     });
   }
 });
 
-console.log('✅ Service Worker configurado para Salón Academia Doña Diva Rodríguez ');
-console.log('📦 Cache:', CACHE_NAME);
-console.log('📄 Archivos a cachear:', urlsToCache.length);
+console.log('âœ… Service Worker configurado para SalÃ³n Academia DoÃ±a Diva RodrÃ­guez ');
+console.log('ðŸ“¦ Cache:', CACHE_NAME);
+console.log('ðŸ“„ Archivos a cachear:', urlsToCache.length);
+
