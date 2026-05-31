@@ -1,0 +1,8 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Salón Academia Doña Diva Rodríguez</string>
+    <string name="title_activity_main">Salón Academia Doña Diva Rodríguez</string>
+    <string name="package_name">com.tusalon.salonyacademiadonadivarodriguez</string>
+    <string name="custom_url_scheme">com.tusalon.salonyacademiadonadivarodriguez</string>
+</resources>
+
