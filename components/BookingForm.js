@@ -515,6 +515,11 @@ END:VCALENDAR`;
                             type="submit"
                             disabled={submitting}
                             className="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-3.5 rounded-xl font-bold hover:from-pink-600 hover:to-pink-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2 shadow-lg"
+                            style={{
+                                background: 'linear-gradient(135deg, var(--brand-primary), rgba(var(--brand-primary-rgb), 0.82))',
+                                color: '#fff',
+                                border: '1px solid rgba(var(--brand-primary-rgb), 0.35)'
+                            }}
                         >
                             {submitting ? (
                                 <>
