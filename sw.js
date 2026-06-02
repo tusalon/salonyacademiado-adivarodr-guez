@@ -1,6 +1,6 @@
 ﻿// sw.js - Service Worker para SalÃ³n Academia DoÃ±a Diva RodrÃ­guez 
 
-const CACHE_NAME = 'salonyacademiado-adivarodr-guez-v50';
+const CACHE_NAME = 'salonyacademiado-adivarodr-guez-v51';
 const urlsToCache = [
   '/salonyacademiado-adivarodr-guez/',
   '/salonyacademiado-adivarodr-guez/index.html',
